@@ -6,7 +6,7 @@
 <span id="ps1_04"></span>
 
 <script type="text/javascript">
-    async function typewriter(text, elementId, waitAfter) {
+    async function typewriter(text, elementId, waitAfter, collapse_after=true) {
         var n = 0,
             isTag = false
         addText = "";
@@ -20,6 +20,7 @@
         const cursor = document.createElement('span');
         cursor.id = "blink";
 
+        el.style.setProperty("margin-right", "-10px");
         el.style.setProperty("--cursor-visibility", "visible");
         while (n < text.length) {
             if (text.charAt(n + 1) === "<") isTag = true;
@@ -40,7 +41,9 @@
 
             n++;
         }
-        el.style.setProperty("--cursor-visibility", "collapse");
+        if (collapse_after) {
+            el.style.setProperty("--cursor-visibility", "collapse");
+        }
     }
 
     function parseDelay(d) {
@@ -53,12 +56,15 @@
         stdoutDelay = parseDelay("{{ .stdoutdelay }}"),
         commandDelay = parseDelay("{{ .commanddelay }}");
     const typeeffetct = async () => {
-        await typewriter("{{ .env }}", "ps1_01", ps1Delay); await typewriter("{{ .cd }}", "cd", commandDelay);
-        await typewriter("{{ .envWithDir }}", "ps1_02", ps1Delay); await typewriter("{{ .cat }}", "cat", commandDelay);
+        await typewriter("{{ .env }}", "ps1_01", ps1Delay); 
+        await typewriter("{{ .cd }}", "cd", commandDelay);
+        await typewriter("{{ .envWithDir }}", "ps1_02", ps1Delay); 
+        await typewriter("{{ .cat }}", "cat", commandDelay);
         await typewriter("{{ .description }}", "std_out_01", stdoutDelay);
-        await typewriter("{{ .envWithDir }}", "ps1_03", ps1Delay); await typewriter("{{ .tree }}", "tree", commandDelay);
+        await typewriter("{{ .envWithDir }}", "ps1_03", ps1Delay); 
+        await typewriter("{{ .tree }}", "tree", commandDelay);
         await typewriter("{{ .leaf }}", "std_out_02", stdoutDelay);
-        await typewriter("{{ .envWithDir }}", "ps1_04", ps1Delay);
+        await typewriter("{{ .envWithDir }} ", "ps1_04", ps1Delay, false);
         return;
     }
 
