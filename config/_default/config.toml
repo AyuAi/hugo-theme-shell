@@ -1,5 +1,5 @@
 baseURL = "https://ayu.dev/"
-title = "ayu@ayu:~$"
+title = "ayu@boba:~$"
 # author = "Yukuro"
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
@@ -37,7 +37,7 @@ ignoreErrors = ["error-remote-getjson"]
   # ...
   # Note: result of the tree command
   userName = "ayu"
-  pcName = "ayu"
+  pcName = "boba"
   workDir = "tea"
   profile = "about.txt"
 
@@ -69,7 +69,7 @@ ignoreErrors = ["error-remote-getjson"]
 
   [Params.Tree]
   use = true
-  folderName = "leafs"
+  folderName = "ingredients"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
     ["Beemo", "/beemo.md"],
