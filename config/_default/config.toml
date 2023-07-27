@@ -72,9 +72,9 @@ ignoreErrors = ["error-remote-getjson"]
   folderName = "ingredients"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
-    ["Beemo", "/beemo.md"],
     ["GitHub", "https://github.com/ayubun"],
-    ["Discord", "/discord.md"],
+    ["Discord", "https://discord.gg/5ZCeF7Kt4D"],
+    ["Beemo", "/beemo.md"],
   ]
 
 [module]
